@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adapter Design Pattern</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Temperature Converter</h1>
+<form th:action="@{/adapter/convert}" th:object="${temperatureForm}" method="post">
+    <label for="temperature">Temperature:</label>
+    <input type="text" th:field="*{temperature}" id="temperature"/>
+    <br/>
+    <label for="scale">Scale:</label>
+    <select th:field="*{scale}" id="scale">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <br/>
+    <input type="submit" value="Convert"/>
+</form>
+</body>
+</html>
+

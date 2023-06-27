@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Composite Design Pattern</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .department {
+            margin-bottom: 20px;
+        }
+
+        .employee {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Employee Management</h1>
+
+    <div th:each="department : ${departments}" class="department">
+        <h2 th:text="${department.name}"></h2>
+        <ul>
+            <li th:each="employee : ${department.employees}" class="employee">
+                <span th:text="${employee.name}"></span> - <span th:text="${employee.position}"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
